@@ -12,8 +12,8 @@ using WebAppLibrary.Data;
 namespace WebAppLibrary.Migrations
 {
     [DbContext(typeof(LibraryDb))]
-    [Migration("20230326221753_DbUpdateUsers")]
-    partial class DbUpdateUsers
+    [Migration("20230327035008_InitDb")]
+    partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,7 +46,7 @@ namespace WebAppLibrary.Migrations
 
                     b.Property<string>("Iban")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("TimeReturned")
                         .HasColumnType("datetime2");
@@ -60,21 +60,10 @@ namespace WebAppLibrary.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Iban")
+                        .IsUnique();
+
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("WebAppLibrary.Models.User", b =>
-                {
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserName");
-
-                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

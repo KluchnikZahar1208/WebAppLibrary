@@ -12,7 +12,7 @@ using WebAppLibrary.Models;
 namespace WebAppLibrary.Controllers
 {
     [Route("api/[controller]")]
-    //[Authorize]
+    [Authorize]
     [ApiController]
     public class BooksController : ControllerBase
     {

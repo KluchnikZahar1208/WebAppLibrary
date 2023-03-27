@@ -63,20 +63,6 @@ namespace WebAppLibrary.Migrations
 
                     b.ToTable("Books");
                 });
-
-            modelBuilder.Entity("WebAppLibrary.Models.User", b =>
-                {
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserName");
-
-                    b.ToTable("Users");
-                });
 #pragma warning restore 612, 618
         }
     }

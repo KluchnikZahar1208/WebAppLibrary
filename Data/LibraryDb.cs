@@ -6,7 +6,6 @@ namespace WebAppLibrary.Data
     public class LibraryDb:DbContext
     {
         public DbSet<Book> Books { get; set; } = null!;
-        public DbSet<User> Users { get; set; } = null!;
         public LibraryDb(DbContextOptions<LibraryDb> options): base(options)
         {
         }
