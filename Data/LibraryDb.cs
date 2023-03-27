@@ -8,6 +8,7 @@ namespace WebAppLibrary.Data
         public DbSet<Book> Books { get; set; } = null!;
         public LibraryDb(DbContextOptions<LibraryDb> options): base(options)
         {
+            Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
